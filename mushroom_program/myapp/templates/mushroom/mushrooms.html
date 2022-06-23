@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block main_content %}
+
+
+<div class="container mt-2">
+    <a class="btn btn-primary" href="{{url_for('bp_mushroom.do_create_mushroom')}}" role="button"
+       style="background-color: #A44200; border: 0;">
+        <i class="bi bi-plus-square"></i>
+        Create mushroom</a>
+
+    {% include 'mushroom/meet_the_mushrooms.html' %}
+
+</div>
+
+
+{% endblock %}

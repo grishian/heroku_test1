@@ -1,0 +1,17 @@
+{% for note in mushroom.notes[1:] %}
+<div class="accordion-item">
+    <h2 class="accordion-header" id="panelsStayOpen-heading{{ note.id }}">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapse{{ note.id }}" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapse{{ note.id }}">
+            {{ note.title }}
+        </button>
+    </h2>
+    <div id="panelsStayOpen-collapse{{ note.id }}" class="accordion-collapse collapse"
+         aria-labelledby="panelsStayOpen-heading{{ note.id }}">
+        <div class="accordion-body">
+            {{ note.body}}
+        </div>
+    </div>
+</div>
+{% endfor %}

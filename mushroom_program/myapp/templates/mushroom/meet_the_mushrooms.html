@@ -1,0 +1,26 @@
+
+    <div class="row row-cols-4 mt-5 justify-content-between" >
+
+        {% for x in range(mushrooms|length) %}
+
+
+        <div class="card shadow mb-5 bg-body rounded myhover" style="width: 18rem; padding: 0;">
+            <img src="{{ mushrooms[x].mushroom_img }}" class="img-fluid" alt="{{ mushrooms[x].name }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ mushrooms[x].name }}</h5>
+                <p class="card-text">
+                    {% if mushrooms[x].notes[0].body|length > 100 %}
+                        {{ mushrooms[x].notes[0].body[0:100] + '...' }}
+                    {% else %}
+                        {{ mushrooms[x].notes[0].body }}
+                    {% endif %}
+                </p>
+                <a href="{{url_for('bp_mushroom.do_mushroom', id=mushrooms[x].id)}}" class="stretched-link"></a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+
+

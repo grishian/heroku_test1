@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+
+{% block main_content %}
+
+<div class="container whitebackground my-5 pb-3">
+
+    <h1>Edit {{mushroom.name}}</h1>
+
+    <form action="" method="post" name="edit_mushroom" class="needs-validation" novalidate>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+
+        <div class="row mb-3">
+            <div class="col-2">
+                <label for="edit_name">Mushroom name:</label>
+            </div>
+            <div class="col-4">
+                <input type="text" class="form-control" id="edit_name" name="edit_name" placeholder="Mushroom name"
+                       value="{{mushroom.name}}" required>
+            </div>
+
+        </div>
+
+
+        <div class="row mb-3">
+            <div class="col-2">
+                <label for="edit_spawn_temp" class="form-label">Spawn temperature: </label>
+            </div>
+            <div class="col-4">
+
+                <label class="visually-hidden" for="edit_spawn_temp">Spawn temperature</label>
+                <div class="input-group">
+
+                    <input type="number" class="form-control" name="edit_spawn_temp" id="edit_spawn_temp"
+                           aria-describedby="edit_spawn_temp_help" value="{{mushroom.spawn_temperature}}" required>
+                    <div class="input-group-text">°C</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-2">
+                <label for="edit_fruit_temp" class="form-label">Fruit temperature: </label>
+            </div>
+            <div class="col-4">
+
+                <label class="visually-hidden" for="edit_fruit_temp">Fruit temperature</label>
+                <div class="input-group">
+
+                    <input type="number" class="form-control" name="edit_fruit_temp" id="edit_fruit_temp"
+                           aria-describedby="edit_fruit_temp_help" value="{{mushroom.fruit_temperature}}" required>
+                    <div class="input-group-text">°C</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row mb-3">
+
+            <div class="col-2">
+                <label for="edit_spawn_fae" class="form-label">Spawn fae: </label>
+            </div>
+
+            <div class="col-4">
+                <input type="number" class="form-control" name="edit_spawn_temp" id="edit_spawn_fae"
+                       value="{{mushroom.spawn_fae}}">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+
+            <div class="col-2">
+                <label for="edit_fruit_fae" class="form-label">Fruit fae: </label>
+            </div>
+
+            <div class="col-4">
+                <input type="number" class="form-control" name="edit_fruit_fae" id="edit_fruit_fae"
+                       value="{{mushroom.fruit_fae}}">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-2">
+                <label for="edit_name">Mushroom image url:</label>
+            </div>
+            <div class="col-4">
+                <input type="text" class="form-control" id="edit_img_url" name="edit_img_url"
+                       placeholder="Mushroom image url"
+                       value="{{mushroom.mushroom_img}}">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="background-color: #A44200; border: 0; ">Save</button>
+        <a class="btn btn-secondary" href="{{url_for('bp_mushroom.do_mushroom', id=mushroom.id)}}"
+           role="button"
+           style="border: 0;">
+            Cancel
+        </a>
+    </form>
+
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
+
+</div>
+
+
+{% endblock %}
+
+
+
+
+

@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+
+{% block main_content %}
+
+<div class="container mt-5">
+
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                        aria-controls="panelsStayOpen-collapseOne">
+                    Mushrooms
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                 aria-labelledby="panelsStayOpen-headingOne">
+                <div class="accordion-body">
+
+                    <p><strong>Create some mushrooms.</strong> Without mushrooms you can't start a grow run. So start by
+                        creating
+                        a mushroom.</p>
+                    <a class="btn btn-primary mt-1" href="{{url_for('bp_mushroom.do_create_mushroom')}}" role="button"
+                       style="background-color: #A44200; border: 0;">
+                        <i class="bi bi-plus-square"></i>
+                        Create mushroom</a>
+                    <a class="btn btn-primary mt-1" href="{{url_for('bp_mushroom.do_your_mushrooms')}}" role="button"
+                       style="background-color: #A44200; border: 0;">
+                        <i class="bi bi-eye"></i>
+                        View mushrooms</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseTwo">
+                    Grow runs
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                 aria-labelledby="panelsStayOpen-headingTwo">
+                <div class="accordion-body">
+                    <p><strong>Create a grow run.</strong> If you created a mushroom, you can now create a grow run. Use
+                        the buttons below.</p>
+                    <a class="btn btn-primary mt-1" href="{{url_for('bp_grow_run.do_create_grow_run')}}" role="button"
+                       style="background-color: #A44200; border: 0;">
+                        <i class="bi bi-plus-square"></i>
+                        Create a grow run</a>
+                    <a class="btn btn-primary mt-1" href="{{url_for('bp_grow_run.do_grow_runs')}}" role="button"
+                       style="background-color: #A44200; border: 0;">
+                        <i class="bi bi-eye"></i>
+                        View grow runs</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseThree">
+                    Extra items
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+                 aria-labelledby="panelsStayOpen-headingThree">
+                <div class="accordion-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pharetra vestibulum arcu, a rhoncus
+                    nunc posuere id. Nam blandit erat non dolor malesuada, non luctus turpis facilisis. In velit nisi,
+                    fringilla nec erat ut, pharetra tincidunt enim. Aliquam in purus ultricies, feugiat orci eget,
+                    molestie nibh. Nam quis efficitur tortor. Nam a interdum leo, egestas imperdiet nibh. Vestibulum
+                    vehicula sem urna. Donec et elementum nisl, sit amet ullamcorper elit. Etiam scelerisque bibendum
+                    efficitur. Aliquam non lectus eu lacus tristique finibus. Fusce congue sagittis aliquam. Vivamus
+                    pharetra massa nec metus ullamcorper hendrerit. Maecenas sem purus, blandit id molestie ac,
+                    efficitur id.
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+{% endblock %}
+
+
+
+
+

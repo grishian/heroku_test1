@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{% block main_content %}
+
+<div class="container mt-2">
+
+    <a class="btn btn-primary" href="{{url_for('bp_grow_run.do_create_grow_run')}}" role="button"
+       style="background-color: #A44200; border: 0;">
+        <i class="bi bi-plus-square"></i>
+        Create a grow run</a>
+
+    <div class="list-group mt-3" style="padding-bottom: 100px">
+        {% for grow_run in grow_runs %}
+        <a href="{{url_for('bp_grow_run.do_grow_run', id=grow_run.id)}}" class="list-group-item list-group-item-action">
+            <div class="d-flex justify-content-between">
+                <div class="p-2 bd-highlight">
+                    {{grow_run.id}}
+                    - {{grow_run.get_mushroom().name}}
+                    - {{grow_run.grow_start}}
+                </div>
+                {% if grow_run.active %}
+                <div class="p-2 bd-highlight" style="background-color: limegreen; width: 6rem; border-radius: 5px; text-align: center;">
+                    Active
+                </div>
+                {% else %}
+                <div class="p-2 bd-highlight" style="background-color: lightgrey; width: 6rem; border-radius: 5px; text-align: center;">
+                    Not-active
+                </div>
+                {% endif %}
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

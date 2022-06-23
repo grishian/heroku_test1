@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+
+{% block main_content %}
+
+
+<div class="container whitebackground">
+
+    <div class="d-flex p-2 bd-highlight my-5">
+
+        <div class="p-2 bd-highlight">
+            <div class="card hover" style="width: 18rem">
+                <img src="{{mushroom.mushroom_img}}" alt="{{mushroom.name}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{mushroom.name.capitalize()}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Spawn temperature: {{mushroom.spawn_temperature}} °C</li>
+                    <li class="list-group-item">Spawn FAE: {{mushroom.spawn_fae}} times a day.</li>
+                    <li class="list-group-item">Fruiting temperature: {{mushroom.fruit_temperature}} °C</li>
+                    <li class="list-group-item">Fruiting FAE: {{mushroom.fruit_fae}} times a day.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="p-2 bd-highlight">
+            <div class="accordion mx-2" id="accordionPanelsStayOpenExample" style="width: 40rem">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-heading{{ mushroom.notes[0].id }}">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapse{{ mushroom.notes[0].id }}" aria-expanded="true"
+                                aria-controls="panelsStayOpen-collapse{{ mushroom.notes[0].id }}">
+                            {{ mushroom.notes[0].title }}
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapse{{ mushroom.notes[0].id }}" class="accordion-collapse collapse show"
+                         aria-labelledby="panelsStayOpen-heading{{ mushroom.notes[0].id }}">
+                        <div class="accordion-body">
+                            {{ mushroom.notes[0].body }}
+                        </div>
+                    </div>
+                </div>
+                {% include 'mushroom/_note.html' %}
+
+            </div>
+        </div>
+        <div class="p-2 bd-highlight">
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                   data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #A44200; border: 0;"><i
+                        class="bi bi-gear"></i>
+                </a>
+
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="{{url_for('bp_mushroom.do_edit_mushroom', id=mushroom.id)}}"><i class="bi bi-pencil" style="color: blue"></i>
+                        Edit mushroom</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="{{url_for('bp_mushroom.do_delete_mushroom', id=mushroom.id)}}"><i
+                            class="bi bi-trash" style="color: red"></i>
+                        Delete mushroom</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>
+</div>
+
+
+{% endblock %}

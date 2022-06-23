@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+{% block main_content %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"
+        integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+
+
+<div class="container">
+    <div class="d-flex justify-content-between">
+
+        <div class="p-2 bd-highlight">
+
+            <a class="btn btn-primary" href="{{url_for('bp_mushroom.do_mushroom', id=grow_run.get_mushroom().id)}}"
+               role="button"
+               style="background-color: #A44200; border: 0;">
+                <i class="bi bi-eye"></i>
+                {{grow_run.get_mushroom().name}}
+            </a>
+        </div>
+        {% if grow_run.active %}
+        <div class="p-2 bd-highlight">
+            <a class="btn btn-primary" href="{{url_for('bp_grow_run.do_grow_run_deactivate', id=grow_run.id)}}"
+               role="button"
+               style="background-color: darkred; border: 0;">
+                <i class="bi bi-stop-circle"></i>
+                Deactivate
+            </a>
+        </div>
+        {% else %}
+        <div class="p-2 bd-highlight">
+
+            {% include 'grow_run/activate_modal.html'%}
+        </div>
+        {% endif %}
+    </div>
+
+    <ul class="list-group w-50 mb-5" >
+        <li class="list-group-item">Spawn startdate: {{grow_run.spawn_start}}</li>
+        <li class="list-group-item">Fruit startdate: {{grow_run.fruit_start}}</li>
+    </ul>
+
+    <canvas id="myChart" style="background-color: white; opacity: 0.7 "></canvas>
+
+
+</div>
+
+
+<script>
+    const DATA_COUNT = 60;
+    const labels = [];
+    for (let i = 0; i < DATA_COUNT; ++i) {
+        labels.push(i.toString());
+    }
+
+
+    const datapoints = {{temperatures}};
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Incubator temperature',
+            fill: false,
+            cubicInterpolationMode: 'monotone',
+            tension: 0.4,
+            borderColor: 'rgb(255, 99, 132)',
+            data: datapoints,
+        }]
+    };
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {
+            responsive: true,
+            maintainAspectRation: false,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Incubator temperature'
+                },
+            },
+            interaction: {
+                intersect: false,
+            },
+            scales: {
+                x: {
+                    display: true,
+                    title: {
+                        display: true,
+                        text: 'Time in minutes'
+                    }
+                },
+                y: {
+                    display: true,
+                    title: {
+                        display: true,
+                        text: 'Temperature in °C'
+                    },
+                    suggestedMin: 10,
+                    suggestedMax: 30
+                }
+            }
+        },
+    };
+
+</script>
+
+<script>
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config,
+    );
+</script>
+
+
+{% endblock %}

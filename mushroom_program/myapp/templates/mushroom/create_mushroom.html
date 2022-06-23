@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+
+
+{% block main_content %}
+
+
+<div class="container whitebackground my-5 pb-3">
+
+
+    <h1>Create mushroom</h1>
+    <form action="" method="post" name="create_grow_run" class="needs-validation" novalidate>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+
+        <div class="row mb-3">
+
+            <div class="col-3">
+                <label for="mushroom_name" class="form-label">Name: </label>
+            </div>
+
+            <div class="col-3">
+                <input type="text" class="form-control" name="mushroom_name" id="mushroom_name"
+                       aria-describedby="name_help" required>
+                <div id="name_help" class="form-text">Here you can give your mushroom a name.</div>
+
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+
+            </div>
+
+            <div class="col-1"></div>
+            <div class="col-2">
+                <label for="note_title" class="form-label">Note title: </label>
+            </div>
+
+            <div class="col-3">
+                <input type="text" class="form-control" name="note_title" id="note_title" required>
+            </div>
+
+        </div>
+
+
+        <div class="row mb-3">
+            <div class="col-3">
+                <label for="spawn_temp" class="form-label">Spawn temperature: </label>
+            </div>
+            <div class="col-3">
+
+                <label class="visually-hidden" for="spawn_temp"></label>
+                <div class="input-group">
+
+                    <input type="number" class="form-control" name="spawn_temp" id="spawn_temp"
+                           aria-describedby="spawn_temp_help" required>
+                    <div class="input-group-text">°C</div>
+                </div>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-2">
+                <label for="note_body" class="form-label">Note: </label>
+            </div>
+            <div class="col-3">
+                <textarea class="form-control" id="note_body" name="note_body"
+                          aria-describedby="note_body_help"
+                          style="height: 100px" required></textarea>
+                <div id="note_body_help" class="form-text">Notes can be any text you want.</div>
+            </div>
+
+
+        </div>
+
+
+        <div class="row mb-3">
+            <div class="col-3">
+                <label for="fruit_temp" class="form-label">Fruiting temperature: </label>
+            </div>
+            <div class="col-3">
+
+                <label class="visually-hidden" for="fruit_temp">Username</label>
+                <div class="input-group">
+
+                    <input type="number" class="form-control" name="fruit_temp" id="fruit_temp"
+                           aria-describedby="fruit_temp_help" required>
+                    <div class="input-group-text">°C</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row mb-3">
+            <div class="col-3">
+                <label for="spawn_fae" class="form-label">Spawn fae: </label>
+            </div>
+
+            <div class="col-3">
+                <input type="number" class="form-control" name="spawn_fae" id="spawn_fae"
+                       aria-describedby="spawn_fae_help" required>
+                <div id="spawn_fae_help" class="form-text">Fae stands for Frequent air exchange.</div>
+            </div>
+
+        </div>
+
+
+        <div class="row mb-3">
+            <div class="col-3">
+                <label for="fruit_fae" class="form-label">Fruit fae: </label></div>
+            <div class="col-3">
+                <input type="number" class="form-control" name="fruit_fae" id="fruit_fae"
+                       aria-describedby="fruit_fae_help" required>
+                <div id="fruit_fae_help" class="form-text">Fae stands for Frequent air exchange.</div>
+            </div>
+        </div>
+
+
+        <div class="row mb-3">
+            <div class="col-3">
+                <label for="mushroom_img" class="form-label">Img url: </label>
+            </div>
+            <div class="col-3">
+                <input type="text" class="form-control" name="mushroom_img" id="mushroom_img"
+                       aria-describedby="img_help" required>
+                <div id="img_help" class="form-text">Here you can paste an url to an image.</div>
+            </div>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary" style="background-color: #A44200; border: 0; ">Create</button>
+        <a class="btn btn-secondary" href="{{url_for('bp_mushroom.do_your_mushrooms')}}"
+           role="button"
+           style="border: 0;">
+            Cancel
+        </a>
+
+    </form>
+
+
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
+</div>
+{% endblock %}
+
+
+

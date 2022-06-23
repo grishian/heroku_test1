@@ -1,0 +1,13 @@
+ssh pi@10.10.0.163
+pi: sudo shutdown -h now
+run flask on netwer: python3 -m flask run --host=0.0.0.0
+get raspberry temp: vcgencmd measure_temp
+
+#flask enviroments
+export SECRET_KEY=zghar*&#$*BQPMD61901
+export DB_HOST=0.0.0.0
+export DB_PASS=2133
+export DB_PORT=3306
+export DB_USER=root
+export FLASK_APP=main.py
+export FLASK_ENV=development

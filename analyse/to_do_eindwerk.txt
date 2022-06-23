@@ -1,0 +1,67 @@
+- GrowRun
+	- Define mushroom stage integers: (0,1,2): OK
+	- grow run page: OK
+		- stage
+			- add active?
+			- in spawn, date
+			- in fruiting, date 
+	
+	- expand "create new grow run": OK
+		- is active
+			- default 'active' = True
+				- check  if a grow run is already active:OK
+				- only one grow run shoud be active for now:OK
+				- add grow stage in interfact (radio options):OK
+
+				
+	- make Grow run id page better
+		- instead of 'you are growing:...': button with mushroom link
+		- add grow_run name
+	- add deactivate button
+				
+- Mushroom:
+	- create mushroom: OK
+		- add nice interface for fruiting temp, ...
+		
+	- fill up empty space on mushroom id page
+		
+		
+- Home page: OK
+	- make nicer, fill up empty space
+	
+		
+- base: OK
+	- add footer
+	
+- user: 
+	- add one super user
+	
+- extra:
+	- bootstrap icons:
+		- thermometer-half
+		- droplet
+		- graph
+		- sliders2-vertical
+		- camera fill
+		
+	- add new incubator items
+		- plants
+			- cacti...
+			- mushroom...
+			- peppers...
+			- ...
+		- animals
+			- fish
+			- reptile
+			- amfibien
+			- insects
+			- ...
+		- customize
+			- ...
+			
+	- get a pdf of information
+
+
+
+
+
