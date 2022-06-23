@@ -24,7 +24,7 @@ class Note(db.Model):
     id = db.Column('id', db.Integer, primary_key=True, index=True)
     mushroom_id = db.Column('mushroom_id', db.ForeignKey(Mushroom.id))
     title = db.Column('title', db.String(100), nullable=False)
-    body = db.Column('body', db.TEXT(1000), nullable=False)
+    body = db.Column('body', db.TEXT(), nullable=False)
 
     mushroom = db.RelationshipProperty(Mushroom, foreign_keys='Note.mushroom_id', back_populates='notes')
 

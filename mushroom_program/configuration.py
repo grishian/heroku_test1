@@ -10,9 +10,11 @@ class BaseConfiguration():
     DEBUG = True
     SECRET_KEY = os.getenv('SECRET_KEY', '')
 
-    SQLALCHEMY_DATABASE_URI = 'mariadb+mariadbconnector://{}:{}@{}:{}/incubator?charset=utf8'.format(
+    '''SQLALCHEMY_DATABASE_URI = 'mariadb+mariadbconnector://{}:{}@{}:{}/incubator?charset=utf8'.format(
         DB_USER, DB_PASS, DB_HOST, DB_PORT
-    )
+    )'''
+
+
 
     DEBUG_TB_ENABLED = True
     DEBUG_TB_INTERCEPT_REDIRECTS = False
