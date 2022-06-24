@@ -3,31 +3,31 @@
 
 {% block title_block %}{{ code }}{% endblock %}
 {% block main_content %}
-<div class="container">
+    <div class="container">
 
-    <div class="position-relative">
-        <div class="position-absolute top-0 start-50 translate-middle-x">
-            <img class="center" src="/static/images/unhappy_mushroom.jpg" style="max-height: 80vh">
+        <div class="position-relative">
+            <div class="position-absolute top-0 start-50 translate-middle-x">
+                <img class="center" src="/static/images/unhappy_mushroom.jpg" style="max-height: 80vh">
+            </div>
         </div>
+
+
+        <h2 class="text-center mt-5 position-relative">
+
+            {% if code == 403 %}
+                Not authorized
+            {% elif code == 404 %}
+                Page Not Found
+            {% elif code == 500 %}
+                Hmmmmmmmmmmmmmmmmmmmmmmmmmmmmm oke het ligt aan de database...
+            {% else %}
+                error
+            {% endif %}
+
+        </h2>
+
+
     </div>
-
-
-
-
-    <h2 class="text-center mt-5 position-relative">
-
-        {% if code == 403 %}
-        Not authorized
-        {% elif code == 404 %}
-        Page Not Found
-        {% else %}
-        error
-        {% endif %}
-
-    </h2>
-
-
-</div>
 
 
 {% endblock %}
