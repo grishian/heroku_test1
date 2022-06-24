@@ -27,6 +27,7 @@ def create_app(config=None):
 
     do_register_blueprint(app)
     do_register_error_handlers(app)
+    do_register_cli(app)
 
     migrate.init_app(app, db)
     return app
@@ -51,3 +52,10 @@ def do_register_error_handlers(flaskapp):
     flaskapp.register_error_handler(403, do_not_authorized)
     flaskapp.register_error_handler(406, do_not_authorized)
     flaskapp.register_error_handler(500, do_server_error)
+
+
+def do_register_cli(flaskapp):
+    from myapp.bp_general.utils_general import do_create_db
+
+    flaskapp.cli.add_command(do_create_db)
+
